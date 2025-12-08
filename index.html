@@ -975,17 +975,27 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
   
-  <div id="welcome-overlay" class="hidden">
-    <div id="welcome-box">
-        <p id="welcome-message">Olá!</p>
-        <button id="welcome-close">Continuar</button>
+  <div id="name-overlay" class="overlay">
+  <div class="overlay-box">
+    <h2>Qual é o seu nome?</h2>
+    <input type="text" id="name-input" placeholder="Digite seu nome">
+    <button id="name-ok">Continuar</button>
+  </div>
+    </div>
+
+  <div id="welcome-overlay" class="overlay hidden">
+    <div class="overlay-box">
+        <p id="welcome-message"></p>
+        <button id="welcome-close">Entrar</button>
     </div>
   </div>
+
   <link rel="stylesheet" href="style.css">
   <script src="js/script.js" defer></script>
   
 </body>
 </html>
+
 
 
 
