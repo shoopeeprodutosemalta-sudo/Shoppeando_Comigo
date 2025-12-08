@@ -50,7 +50,7 @@ h1 {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* duas colunas fixas */
+  grid-template-columns: repeat(2, 1fr); /* duas colunas fixas */
   gap: 20px;
 }
 
@@ -235,6 +235,7 @@ main h1,
   from { transform: scale(0.9); opacity: 0; }
   to   { transform: scale(1); opacity: 1; }
 }
+
 
 
 
