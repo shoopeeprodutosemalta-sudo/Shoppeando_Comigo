@@ -1,33 +1,33 @@
-// Pergunta nome SEM SALVAR
-function getUserName() {
-  const asked = prompt("Qual é o seu nome?");
-  return asked ? asked.trim() : "";
-}
-
-// Mostra overlay
-function showOverlay() {
-  document.getElementById("welcome-overlay").classList.remove("hidden");
-}
-
-// Esconde overlay
-function hideOverlay() {
-  document.getElementById("welcome-overlay").classList.add("hidden");
-}
-
-// INICIAR
 window.addEventListener("DOMContentLoaded", () => {
-  const name = getUserName();
-  const msg = document.getElementById("welcome-message");
 
-  msg.innerHTML = name
-    ? `Seja bem-vindo ao meu site, <strong>${name}</strong>!`
-    : "Seja bem-vindo ao meu site!";
+  const nameOverlay = document.getElementById("name-overlay");
+  const welcomeOverlay = document.getElementById("welcome-overlay");
 
-  showOverlay();
+  const nameInput = document.getElementById("name-input");
+  const nameOkBtn = document.getElementById("name-ok");
+  const welcomeMessage = document.getElementById("welcome-message");
+  const closeWelcome = document.getElementById("welcome-close");
 
-  document.getElementById("welcome-close").addEventListener("click", hideOverlay);
+  // 1️⃣ Abre o popup para perguntar o nome
+  nameOverlay.classList.remove("hidden");
+
+  nameOkBtn.addEventListener("click", () => {
+    const name = nameInput.value.trim();
+
+    // Previne continuar sem digitar nada
+    if (!name) return;
+
+    // Esconde popup do nome
+    nameOverlay.classList.add("hidden");
+
+    // Mostra popup com a mensagem personalizada
+    welcomeMessage.innerHTML = `Seja bem-vindo ao meu site, <strong>${name}</strong>!`;
+    welcomeOverlay.classList.remove("hidden");
+  });
+
+  // 2️⃣ Botão final para fechar tudo
+  closeWelcome.addEventListener("click", () => {
+    welcomeOverlay.classList.add("hidden");
+  });
+
 });
-
-/* ======== MELHORAR OVERLAY NO CELULAR ======== */
-
-
