@@ -8,28 +8,37 @@ window.addEventListener("DOMContentLoaded", () => {
   const welcomeMessage = document.getElementById("welcome-message");
   const closeWelcome = document.getElementById("welcome-close");
 
-  // 1️⃣ Abre o popup para perguntar o nome
+  // Abre o popup
   nameOverlay.classList.remove("hidden");
 
-  nameOkBtn.addEventListener("click", () => {
+  function closeNamePopup() {
     const name = nameInput.value.trim();
 
-    // Previne continuar sem digitar nada
-    if (!name) return;
-
-    // Esconde popup do nome
     nameOverlay.classList.add("hidden");
 
-    // Mostra popup com a mensagem personalizada
-    welcomeMessage.innerHTML = `Seja bem-vindo ao meu site, <strong>${name}</strong>!`;
-    welcomeOverlay.classList.remove("hidden");
+    // Se tiver nome, mostra boas-vindas
+    if (name) {
+      welcomeMessage.textContent = `Seja bem-vindo ao meu site, ${name}!`;
+      welcomeOverlay.classList.remove("hidden");
+    }
+  }
+
+  // Clique no botão OK
+  nameOkBtn.addEventListener("click", closeNamePopup);
+
+  // 🔹 Clique fora do popup
+  nameOverlay.addEventListener("click", (e) => {
+    if (e.target === nameOverlay) {
+      closeNamePopup();
+    }
   });
 
-  // 2️⃣ Botão final para fechar tudo
+  // Fecha boas-vindas
   closeWelcome.addEventListener("click", () => {
     welcomeOverlay.classList.add("hidden");
   });
 
+});
 });
 // sistema de busca do site
 
@@ -89,4 +98,5 @@ document.addEventListener("keydown", (e) => {
     modal.style.display = "none";
   }
 });
+
 
