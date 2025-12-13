@@ -39,7 +39,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-});
 // sistema de busca do site
 
 // Função para remover acentos
@@ -98,5 +97,6 @@ document.addEventListener("keydown", (e) => {
     modal.style.display = "none";
   }
 });
+
 
 
